@@ -49,56 +49,66 @@ Make sure you have the following installed:
     npm start
     ```
 
-2. The API will be running at `http://localhost:3000`.
+2. The API will be running at `http://localhost:3030`.
 
 ## API Endpoints
 
 ### GET /flight-history
 
-Returns a list of historical flight data.
+Returns a list of historical flight data. Accpets the following query parameters:
+
+* `flight_iata`: The flight IATA code
 
 **Sample Request:**
 
 ```
-GET http://localhost:3000/api/flights/flight-history
+GET http://localhost:3030/v1/flights?flight_iata=FR1114
 ```
 
 **Sample Response:**
 
 ```json
-[
-  {
-    "flight_date": "2023-09-15",
-    "flight_status": "landed",
-    "departure": {
-      "airport": "New York",
-      "timezone": "America/New_York",
-      "scheduled_time": "2023-09-15T14:45:00.000Z",
-      "actual_time": "2023-09-15T15:05:00.000Z",
-      "delay": 20
-    },
-    "arrival": {
-      "airport": "Los Angeles",
-      "timezone": "America/Los_Angeles",
-      "scheduled_time": "2023-09-15T17:30:00.000Z",
-      "actual_time": "2023-09-15T17:50:00.000Z",
-      "delay": 20
-    },
-    "airline": {
-      "name": "Awesome Airlines",
-      "iata": "AA",
-      "icao": "AWE"
-    },
-    "flight": {
-      "number": "123",
-      "iata": "AA123",
-      "icao": "AWE123"
-    },
-    "aircraft": {
-      "registration": "N12345",
-      "iata": "A320",
-      "icao": "A320"
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 100,
+    "total": 1669022
+  },
+  "data": [
+    {
+      "flight_date": "2023-09-15",
+      "flight_status": "landed",
+      "departure": {
+        "airport": "New York",
+        "timezone": "America/New_York",
+        "scheduled_time": "2023-09-15T14:45:00.000Z",
+        "actual_time": "2023-09-15T15:05:00.000Z",
+        "delay": 20
+      },
+      "arrival": {
+        "airport": "Los Angeles",
+        "timezone": "America/Los_Angeles",
+        "scheduled_time": "2023-09-15T17:30:00.000Z",
+        "actual_time": "2023-09-15T17:50:00.000Z",
+        "delay": 20
+      },
+      "airline": {
+        "name": "Awesome Airlines",
+        "iata": "AA",
+        "icao": "AWE"
+      },
+      "flight": {
+        "number": "123",
+        "iata": "AA123",
+        "icao": "AWE123"
+      },
+      "aircraft": {
+        "registration": "N12345",
+        "iata": "A320",
+        "icao": "A320"
+      }
     }
-  }
-]
+  ]
+}
 ```

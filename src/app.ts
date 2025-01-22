@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/api/flights', flightRoutes);
+app.use('/v1', flightRoutes);
 
 export default app;

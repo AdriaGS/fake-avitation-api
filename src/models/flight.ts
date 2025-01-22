@@ -1,4 +1,9 @@
 export interface FlightHistory {
+  pagination: Pagination;
+  data: FlightData[];
+}
+
+export interface FlightData {
   flight_date: string;
   flight_status: string;
   departure: {
@@ -30,4 +35,11 @@ export interface FlightHistory {
     iata: string;
     icao: string;
   };
+}
+
+export interface Pagination {
+  limit: number;
+  offset: number;
+  count: number;
+  total: number;
 }

@@ -3,6 +3,6 @@ import { getFlightHistory } from '../controllers/flightController';
 
 const router = Router();
 
-router.get('/flight-history', getFlightHistory);
+router.get('/flights', getFlightHistory);
 
 export default router;

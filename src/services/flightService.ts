@@ -1,10 +1,14 @@
 import { faker } from '@faker-js/faker';
-import { FlightHistory } from '../models/flight';
+import { FlightData, FlightHistory } from '../models/flight';
 
-export const getFakeFlightHistory = (): FlightHistory[] => {
-  const flightHistory: FlightHistory[] = [];
+export const getFakeFlightHistory = ({
+  flight_iata,
+}: {
+  flight_iata: string;
+}): FlightHistory => {
+  const flightData: FlightData[] = [];
   for (let i = 0; i < 10; i++) {
-    flightHistory.push({
+    flightData.push({
       flight_date: faker.date.past().toISOString().split('T')[0],
       flight_status: faker.helpers.arrayElement(['landed', 'cancelled']),
       departure: {
@@ -28,7 +32,7 @@ export const getFakeFlightHistory = (): FlightHistory[] => {
       },
       flight: {
         number: faker.number.int(1000).toString(),
-        iata: faker.string.alphanumeric(5).toUpperCase(),
+        iata: flight_iata,
         icao: faker.string.alphanumeric(4).toUpperCase(),
       },
       aircraft: {
@@ -38,5 +42,13 @@ export const getFakeFlightHistory = (): FlightHistory[] => {
       },
     });
   }
-  return flightHistory;
+  return {
+    pagination: {
+      limit: 100,
+      offset: 0,
+      count: 100,
+      total: 1669022,
+    },
+    data: flightData,
+  };
 };
