@@ -9,16 +9,22 @@ export interface FlightData {
   departure: {
     airport: string;
     timezone: string;
-    scheduled_time: string;
-    actual_time: string;
+    scheduled: string;
+    estimated: string;
+    actual: string;
     delay: number;
+    terminal: string;
+    gate: string;
   };
   arrival: {
     airport: string;
     timezone: string;
-    scheduled_time: string;
-    actual_time: string;
+    scheduled: string;
+    estimated: string;
+    actual: string;
     delay: number;
+    terminal: string;
+    gate: string;
   };
   airline: {
     name: string;
