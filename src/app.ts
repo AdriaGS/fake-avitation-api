@@ -1,5 +1,5 @@
 import express from 'express';
-import flightRoutes from './routes/flightRoutes';
+import aviationStackRoutes from './routes/aviationStackRoutes';
 
 const app = express();
 
@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/v1', flightRoutes);
+app.use('/v1', aviationStackRoutes);
 
 export default app;

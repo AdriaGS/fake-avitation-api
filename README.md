@@ -53,7 +53,7 @@ Make sure you have the following installed:
 
 ## API Endpoints
 
-### GET /flight-history
+### GET v1/flight-history
 
 Returns a list of historical flight data. Accpets the following query parameters:
 
@@ -108,6 +108,52 @@ GET http://localhost:3030/v1/flights?flight_iata=FR1114
         "iata": "A320",
         "icao": "A320"
       }
+    }
+  ]
+}
+```
+
+### GET v1/airports
+
+Returns a list of airports based on the query parameters. Accpets the following query parameters:
+
+* `lat`: Latitude
+* `lng`: Longitude
+* `limit`: Limit of Airports to return
+
+**Sample Request:**
+
+```
+GET http://localhost:3030/v1/airpors?lat=99&lng=99&limit=1
+```
+
+**Sample Response:**
+
+```json
+{
+  "pagination": {
+    "limit": 1,
+    "offset": 0,
+    "count": 1,
+    "total": 10000
+  },
+  "data": [
+    {
+      "airport_name": "East Johnnie International Airport",
+      "iata_code": "IRI",
+      "icao_code": "LMEP",
+      "latitude": "1.4344",
+      "longitude": "-169.8721",
+      "geoname_id": "6449159",
+      "timezone": "America/Belem",
+      "gmt": "+5",
+      "phone_number": "(443) 234-1259 x6434",
+      "country_name": "Tajikistan",
+      "country_iso2": "JM",
+      "country_iso3": "PAK",
+      "city_iata_code": "DJK",
+      "city_name": "Lydafield",
+      "website": "https://hidden-soup.org"
     }
   ]
 }

@@ -1,3 +1,5 @@
+import { Pagination } from './common';
+
 export interface FlightHistory {
   pagination: Pagination;
   data: FlightData[];
@@ -41,11 +43,4 @@ export interface FlightData {
     iata: string;
     icao: string;
   };
-}
-
-export interface Pagination {
-  limit: number;
-  offset: number;
-  count: number;
-  total: number;
 }
