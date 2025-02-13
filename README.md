@@ -117,14 +117,12 @@ GET http://localhost:3030/v1/flights?flight_iata=FR1114
 
 Returns a list of airports based on the query parameters. Accpets the following query parameters:
 
-* `lat`: Latitude
-* `lng`: Longitude
 * `limit`: Limit of Airports to return
 
 **Sample Request:**
 
 ```
-GET http://localhost:3030/v1/airpors?lat=99&lng=99&limit=1
+GET http://localhost:3030/v1/airpors?limit=1
 ```
 
 **Sample Response:**

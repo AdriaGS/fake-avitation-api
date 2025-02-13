@@ -2,12 +2,8 @@ import { faker } from '@faker-js/faker';
 import { Airport, AirportResponse } from '../models/airport';
 
 export const getFakeAirports = ({
-  lat,
-  lng,
   limit = 4,
 }: {
-  lat: number;
-  lng: number;
   limit?: number;
 }): AirportResponse => {
   const airports: Airport[] = [];
@@ -19,8 +15,8 @@ export const getFakeAirports = ({
       airport_name: `${faker.location.city()} International Airport`,
       iata_code: faker.string.alpha({ length: 3, casing: 'upper' }),
       icao_code: faker.string.alpha({ length: 4, casing: 'upper' }),
-      latitude: faker.location.latitude({ max: lat }).toString(),
-      longitude: faker.location.longitude({ max: lng }).toString(),
+      latitude: faker.location.toString(),
+      longitude: faker.location.toString(),
       geoname_id: faker.string.numeric(7),
       timezone: faker.location.timeZone(),
       gmt: faker.helpers.arrayElement([

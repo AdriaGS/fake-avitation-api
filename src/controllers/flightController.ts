@@ -12,9 +12,7 @@ export const getFlightData = (req: Request, res: Response) => {
 };
 
 export const getNearestAirports = (req: Request, res: Response) => {
-  const lat = Number(checkNotNull(req.query.lat));
-  const lng = Number(checkNotNull(req.query.lng));
   const limit = Number(checkNotNull(req.query.limit));
-  const airports = getFakeAirports({ lat: lat, lng: lng, limit: limit });
+  const airports = getFakeAirports({ limit: limit });
   res.json(airports);
 };
