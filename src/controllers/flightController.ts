@@ -3,9 +3,11 @@ import { getFakeFlightHistory } from '../services/flightService';
 import { getFakeAirports } from '../services/airportService';
 import { checkNotNull } from '../utils/extensions';
 
-export const getFlightHistory = (req: Request, res: Response) => {
-  const flight_iata = checkNotNull(req.query.flight_iata).toString();
-  const flightHistory = getFakeFlightHistory({ flight_iata: flight_iata });
+export const getFlightData = (req: Request, res: Response) => {
+  const flight_iata = req.query.flight_iata;
+  const dep_iata = req.query.dep_iata;
+  const iata = checkNotNull(flight_iata || dep_iata).toString();
+  const flightHistory = getFakeFlightHistory({ flight_iata: iata });
   res.json(flightHistory);
 };
 
